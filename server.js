@@ -101,7 +101,7 @@ function renderHome(videos, query = "") {
 
       return `<article class="video-card">
          <a class="thumb" href="${href}" aria-label="播放 ${escapeHtml(video.title)}">
-          <video src="${videoSrc}#t=0.1" muted preload="metadata"></video>
+          <video src="${videoSrc}" muted preload="metadata"></video>
           <span class="play-badge">▶</span>
         </a>
         <div class="video-meta">
@@ -142,7 +142,7 @@ function renderWatch(video, relatedVideos) {
     .map((item) => {
       const href = `/watch/${encodeURIComponent(item.filename)}`;
       return `<a class="related-item" href="${href}">
-        <video src="${R2_BASE_URL}/${encodeURIComponent(item.filename)}#t=0.1" muted preload="metadata"></video>
+        <video src="${R2_BASE_URL}/${encodeURIComponent(item.filename)}" muted preload="metadata"></video>
         <span>${escapeHtml(item.title)}</span>
       </a>`;
     })
