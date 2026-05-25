@@ -1,7 +1,7 @@
 {
-  "name": "mini-video-site",
+  "name": "pxz-videos",
   "version": "1.0.0",
-  "description": "A minimalist YouTube-style video site built with Node.js and Express.",
+  "description": "Pxz's video site built with Node.js and Express.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
