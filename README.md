@@ -1,6 +1,6 @@
-# MiniTube
+# Pxz's videos
 
-一个使用 Node.js + Express 搭建的迷你视频网站。首页会自动读取 `public/videos` 文件夹里的 `.mp4` 视频，并以简化版 YouTube 的黑白灰风格展示。
+一个使用 Node.js + Express 搭建的个人视频网站。首页会自动读取 `public/videos` 文件夹里的 `.mp4` 视频，并以简化版 YouTube 的黑白灰风格展示。
 
 ## 功能
 
