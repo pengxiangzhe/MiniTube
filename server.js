@@ -31,7 +31,12 @@ function getVideos() {
     .map((entry) => {
       const filePath = path.join(videosDir, entry.name);
       const stats = fs.statSync(filePath);
-      const title = path.basename(entry.name, path.extname(entry.name)).replaceAll(/[-_]+/g, " ");
+      let title = path.basename(entry.name, path.extname(entry.name)).replaceAll(/[-_]+/g, " ");
+      
+      // 特殊处理 test.mp4 显示为梓川咲太
+      if (entry.name.toLowerCase() === "test.mp4") {
+        title = "梓川咲太";
+      }
 
       return {
         filename: entry.name,
