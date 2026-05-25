@@ -69,7 +69,7 @@ function renderLayout({ title, content, searchValue = "" }) {
     <header class="topbar">
       <a class="brand" href="/" aria-label="返回首页">
         <span class="brand-mark">▶</span>
-        <span>MiniTube</span>
+        <span>Pxz's videos</span>
       </a>
       <form class="search" action="/" method="get">
         <input type="search" name="q" placeholder="搜索本地视频" value="${escapeHtml(searchValue)}">
@@ -117,12 +117,12 @@ function renderHome(videos, query = "") {
     : "还没有视频。把 mp4 文件放进 public/videos 文件夹后刷新页面。";
 
   return renderLayout({
-    title: "MiniTube",
+    title: "Pxz's videos",
     searchValue: query,
     content: `<section class="hero">
         <div>
-          <p class="eyebrow">Local Video Library</p>
-          <h1>本地迷你视频网站</h1>
+          <p class="eyebrow">Video Library</p>
+          <h1>Pxz's videos</h1>
         </div>
         <span>${filteredVideos.length} 个视频</span>
       </section>
@@ -149,7 +149,7 @@ function renderWatch(video, relatedVideos) {
     .join("");
 
   return renderLayout({
-    title: `${video.title} - MiniTube`,
+    title: `${video.title} - Pxz's videos`,
     content: `<section class="watch-layout">
         <div class="player-column">
           <video class="player" src="${videoSrc}" controls autoplay></video>
@@ -179,7 +179,7 @@ app.get("/watch/:filename", (req, res) => {
   if (!video) {
     res.status(404).send(
       renderLayout({
-        title: "视频不存在 - MiniTube",
+        title: "视频不存在 - Pxz's videos",
         content: `<section class="empty-state">没有找到这个视频。<br><a href="/">返回首页</a></section>`
       })
     );
@@ -190,5 +190,5 @@ app.get("/watch/:filename", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`MiniTube is running at http://localhost:${PORT}`);
+  console.log(`Pxz's videos is running at http://localhost:${PORT}`);
 });
