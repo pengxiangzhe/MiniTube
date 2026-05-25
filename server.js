@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 3000;
 
 const publicDir = path.join(__dirname, "public");
 const videosDir = path.join(publicDir, "videos");
+const R2_BASE_URL = "https://pub-bb8e0543cbd9475d85ccd4887c1f2155.r2.dev";
 
 app.use(express.static(publicDir));
 
@@ -86,7 +87,7 @@ function renderHome(videos, query = "") {
   const cards = filteredVideos
     .map((video) => {
       const href = `/watch/${encodeURIComponent(video.filename)}`;
-      const videoSrc = `/videos/${encodeURIComponent(video.filename)}`;
+      const videoSrc = `${R2_BASE_URL}/${encodeURIComponent(video.filename)}`;
       const updated = new Intl.DateTimeFormat("zh-CN", {
         year: "numeric",
         month: "2-digit",
@@ -94,7 +95,7 @@ function renderHome(videos, query = "") {
       }).format(video.updatedAt);
 
       return `<article class="video-card">
-        <a class="thumb" href="${href}" aria-label="播放 ${escapeHtml(video.title)}">
+         <a class="thumb" href="${href}" aria-label="播放 ${escapeHtml(video.title)}">
           <video src="${videoSrc}#t=0.1" muted preload="metadata"></video>
           <span class="play-badge">▶</span>
         </a>
@@ -129,14 +130,14 @@ function renderHome(videos, query = "") {
 }
 
 function renderWatch(video, relatedVideos) {
-  const videoSrc = `/videos/${encodeURIComponent(video.filename)}`;
+  const videoSrc = `${R2_BASE_URL}/${encodeURIComponent(video.filename)}`;
   const relatedCards = relatedVideos
     .filter((item) => item.filename !== video.filename)
     .slice(0, 8)
     .map((item) => {
       const href = `/watch/${encodeURIComponent(item.filename)}`;
       return `<a class="related-item" href="${href}">
-        <video src="/videos/${encodeURIComponent(item.filename)}#t=0.1" muted preload="metadata"></video>
+        <video src="${R2_BASE_URL}/${encodeURIComponent(item.filename)}#t=0.1" muted preload="metadata"></video>
         <span>${escapeHtml(item.title)}</span>
       </a>`;
     })
