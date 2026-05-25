@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 
 const publicDir = path.join(__dirname, "public");
 const videosDir = path.join(publicDir, "videos");
-const R2_BASE_URL = "https://pub-bb8e0543cbd9475d85ccd4887c1f2155.r2.dev";
+const R2_BASE_URL = "https://pub-e09351b1d1d64020887a48f3f65ea091.r2.dev";
 
 app.use(express.static(publicDir));
 
